@@ -45,6 +45,18 @@
             <version>2.1.8</version>
         </dependency>
 
+        <dependency>
+            <groupId>commons-validator</groupId>
+            <artifactId>commons-validator</artifactId>
+            <version>1.4.0</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.codehaus.groovy.modules.http-builder</groupId>
+            <artifactId>http-builder</artifactId>
+            <version>0.7</version>
+        </dependency>
+
     </dependencies>
 
     <build>
