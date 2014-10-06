@@ -21,7 +21,7 @@ public class RssResource {
     @Produces(MediaType.APPLICATION_JSON)
     public String get(@QueryParam("url") String url, @DefaultValue("100") @QueryParam("limit") int limit) {
         try {
-            if (isValidUrlToRssFeed(url)) {
+            if (isValidUrl(url)) {
                 def xmlResponse = ConnectionFacade.httpGet(url)
                 String rssContent = extractRssContent(xmlResponse)
                 def mostFrequentWordsMap = new TextAnalyser(text: rssContent).getMostFrequentWords(limit)
@@ -33,7 +33,6 @@ public class RssResource {
             JsonBuilder errorJson = buildErrorJson(exception)
             return errorJson
         }
-
     }
 
     private JsonBuilder buildErrorJson(Exception exception) {
@@ -59,9 +58,9 @@ public class RssResource {
         rssContent.toString()
     }
 
-    private boolean isValidUrlToRssFeed(String url) {
+    private boolean isValidUrl(String url) {
          def allSchemesAllowed = UrlValidator.ALLOW_ALL_SCHEMES
          UrlValidator urlValidator = new UrlValidator(allSchemesAllowed)
-         urlValidator.isValid(url) && url.endsWith(".xml")
+         urlValidator.isValid(url)
     }
 }
