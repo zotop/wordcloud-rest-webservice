@@ -1,6 +1,7 @@
 package se.svt.wordcloud.resource.rss
 
 import groovy.json.JsonBuilder
+import org.jsoup.Jsoup
 import se.svt.wordcloud.util.ConnectionFacade
 import se.svt.wordcloud.util.TextAnalyser
 
@@ -53,7 +54,8 @@ public class RssResource {
     private String extractRssContent(xmlResponse) {
         def rssContent = new StringBuilder()
         xmlResponse.data.channel.item.description.each {
-            rssContent.append(it.text()).append(" ")
+            def textWithoutHtmlTags = Jsoup.parse(it.text()).text()
+            rssContent.append(textWithoutHtmlTags).append(" ")
         }
         rssContent.toString()
     }
