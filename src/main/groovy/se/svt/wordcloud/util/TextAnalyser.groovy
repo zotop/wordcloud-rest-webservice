@@ -21,7 +21,7 @@ public class TextAnalyser {
         frequencyCounter
     }
 
-    def getMostFrequentWords(int numberOfWords) {
+    def getMostFrequentWords(def numberOfWords) {
         def wordFrequencyMap = getWordFrequencyMap()
         wordFrequencyMap = wordFrequencyMap.sort { -it.value } //sort by descending value
         def mostFrequentWords = [:]
