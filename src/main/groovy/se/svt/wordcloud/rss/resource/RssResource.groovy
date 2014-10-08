@@ -18,7 +18,7 @@ public class RssResource {
 
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    public String get(@QueryParam("url") String url, @DefaultValue("100") @QueryParam("limit") int limit) {
+    public String mostFrequentWords(@QueryParam("url") String url, @DefaultValue("100") @QueryParam("limit") int limit) {
         try {
             def rssClient = new RssClient()
             def rssFeed = rssClient.fetchRssFeedFromUrl(url)
