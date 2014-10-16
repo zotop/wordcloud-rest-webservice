@@ -1,4 +1,4 @@
-package se.svt.wordcloud.twitter.client
+package wordcloud.twitter.client
 
 import groovyx.net.http.RESTClient
 import org.junit.Test

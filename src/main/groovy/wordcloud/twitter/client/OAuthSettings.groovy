@@ -1,4 +1,4 @@
-package se.svt.wordcloud.twitter.client
+package wordcloud.twitter.client
 
 
 class OAuthSettings {

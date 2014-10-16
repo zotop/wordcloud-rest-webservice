@@ -1,8 +1,9 @@
-package se.svt.wordcloud.twitter.resource
+package wordcloud.twitter.resource
 
 import groovy.json.JsonBuilder
-import se.svt.wordcloud.twitter.client.TwitterSearchClient
-import se.svt.wordcloud.util.TextAnalyser
+import wordcloud.twitter.client.TwitterSearchClient
+import wordcloud.util.JSONUtil
+import wordcloud.util.TextAnalyser
 
 import javax.ws.rs.DefaultValue
 import javax.ws.rs.GET;
@@ -24,17 +25,8 @@ public class TwitterResource {
             new JsonBuilder(mostFrequentWords).toPrettyString()
         } catch (Exception exception) {
             exception.printStackTrace()
-            sendErrorMessage(exception)
+            JSONUtil.errorMessage(exception)
         }
-    }
-
-    def sendErrorMessage(Exception exception) {
-        def errorMessage = "Error occurred"
-        if (exception.getMessage()) {
-            errorMessage = exception.getMessage()
-        }
-        def errorJson = new JsonBuilder()
-        errorJson { error errorMessage }
     }
 
 }

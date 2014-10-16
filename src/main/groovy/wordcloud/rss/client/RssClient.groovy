@@ -1,4 +1,4 @@
-package se.svt.wordcloud.rss.client
+package wordcloud.rss.client
 
 import groovyx.net.http.RESTClient
 import org.apache.commons.validator.routines.UrlValidator

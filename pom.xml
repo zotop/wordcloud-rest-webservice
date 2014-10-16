@@ -114,7 +114,7 @@
                     </execution>
                 </executions>
                 <configuration>
-                    <mainClass>se.svt.wordcloud.Main</mainClass>
+                    <mainClass>wordcloud.Main</mainClass>
                 </configuration>
             </plugin>
             <plugin>

@@ -1,9 +1,9 @@
-package se.svt.wordcloud.rss.resource
+package wordcloud.rss.resource
 
 import groovy.json.JsonBuilder
-import org.jsoup.Jsoup
-import se.svt.wordcloud.rss.client.RssClient
-import se.svt.wordcloud.util.TextAnalyser
+import wordcloud.rss.client.RssClient
+import wordcloud.util.JSONUtil
+import wordcloud.util.TextAnalyser
 
 import javax.ws.rs.DefaultValue
 import javax.ws.rs.GET;
@@ -27,17 +27,8 @@ public class RssResource {
             new JsonBuilder(mostFrequentWordsMap).toPrettyString()
         } catch (Exception exception) {
             exception.printStackTrace()
-            sendErrorMessage(exception)
+            JSONUtil.errorMessage(exception)
         }
-    }
-
-    def sendErrorMessage(Exception exception) {
-        def errorMessage = "Error occurred"
-        if (exception.getMessage()) {
-            errorMessage = exception.getMessage()
-        }
-        def errorJson = new JsonBuilder()
-        errorJson { error errorMessage }
     }
 
 }

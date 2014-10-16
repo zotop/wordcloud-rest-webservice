@@ -1,6 +1,4 @@
-package se.svt.wordcloud.util
-
-import groovy.json.JsonSlurper
+package wordcloud.util
 
 import java.util.regex.Matcher
 import java.util.regex.Pattern;
@@ -12,9 +10,9 @@ public class TextAnalyser {
     def getWordFrequencyMap() {
         def frequencyCounter = [:]
         Pattern pattern = Pattern.compile("[\\w']+");
-        Matcher matcher = pattern.matcher(text);
+        Matcher matcher = pattern.matcher(text)
         matcher.each {word ->
-            word = word.toLowerCase();
+            word = word.toLowerCase()
             def wordCounter = frequencyCounter[word] ?: 0
             frequencyCounter[word] = wordCounter + 1
         }

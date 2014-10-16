@@ -1,6 +1,5 @@
-package se.svt.wordcloud.util
+package wordcloud.util
 
-import org.junit.Assert
 import org.junit.Test
 
 
