@@ -14,8 +14,6 @@ of the most frequent words found.
 Herokufied demo
 =========================
 
-Heroku url: http://wordcloud-rest.herokuapp.com/
-
 Twitter example using the Search API:
 
 http://wordcloud-rest.herokuapp.com/twitter?hashtag=money&limit=10
